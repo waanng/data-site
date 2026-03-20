@@ -212,38 +212,38 @@
         <div class="grid grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
           <div class="data-card">
             <div class="card-header">
+              <div class="card-title">分析项目</div>
+              <div class="card-badge badge-live">PROJECTS</div>
+            </div>
+            <div class="card-value mono">02</div>
+            <div class="card-label">个实战项目</div>
+          </div>
+          
+          <div class="data-card">
+            <div class="card-header">
               <div class="card-title">数据记录</div>
               <div class="card-badge badge-live">DATA</div>
             </div>
-            <div class="card-value mono">4,050</div>
-            <div class="card-label">条客户记录</div>
+            <div class="card-value mono">4,075</div>
+            <div class="card-label">条分析数据</div>
           </div>
           
           <div class="data-card">
             <div class="card-header">
-              <div class="card-title">特征数量</div>
+              <div class="card-title">分析维度</div>
               <div class="card-badge badge-live">FEATURES</div>
             </div>
-            <div class="card-value mono">07</div>
-            <div class="card-label">个分析维度</div>
+            <div class="card-value mono">10+</div>
+            <div class="card-label">个指标分析</div>
           </div>
           
           <div class="data-card">
             <div class="card-header">
-              <div class="card-title">模型对比</div>
-              <div class="card-badge badge-live">MODELS</div>
+              <div class="card-title">可视化</div>
+              <div class="card-badge badge-live">CHART</div>
             </div>
-            <div class="card-value mono">03</div>
-            <div class="card-label">种算法评估</div>
-          </div>
-          
-          <div class="data-card">
-            <div class="card-header">
-              <div class="card-title">最佳 AUC</div>
-              <div class="card-badge badge-live">SCORE</div>
-            </div>
-            <div class="card-value mono" style="color: var(--color-up);">0.70</div>
-            <div class="card-label">随机森林模型</div>
+            <div class="card-value mono">10+</div>
+            <div class="card-label">种图表展示</div>
           </div>
         </div>
       </div>
@@ -253,35 +253,57 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2>精选项目</h2>
-          <p>端到端的机器学习数据分析实战</p>
+          <h2>项目展示</h2>
+          <p>从描述型分析到机器学习的完整数据分析案例</p>
         </div>
         
-        <div class="projects-grid" style="grid-template-columns: 1fr;">
+        <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <!-- ML Project -->
           <article class="project-card" onclick="location.href='ml-analysis/index.html'">
-            <div style="display: grid; grid-template-columns: 1fr 2fr;">
-              <div class="project-icon" style="height: 100%;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <div class="project-icon" style="height: 120px;">
                 <i class="fas fa-brain"></i>
               </div>
-              <div class="project-content">
+              <div class="project-content" style="flex: 1;">
                 <div class="project-tag">机器学习</div>
                 <h3>客户购买行为预测</h3>
                 <p>
-                  完整的二分类机器学习项目，涵盖数据探索（EDA）、特征工程、
-                  模型训练与评估全流程。使用逻辑回归、决策树、随机森林三种算法对比，
-                  最终 AUC 达到 0.70。
+                  完整的二分类机器学习项目，涵盖数据探索、特征工程、
+                  模型训练与评估全流程。
                 </p>
                 <div class="project-metrics">
-                  <span><i class="fas fa-database"></i> 4,050 条数据</span>
+                  <span><i class="fas fa-database"></i> 4,050 条</span>
                   <span><i class="fas fa-chart-line"></i> AUC 0.70</span>
-                  <span><i class="fas fa-clock"></i> 9 步流程</span>
                 </div>
-                <div style="margin-top: 20px;">
-                  <a href="ml-analysis/notebook.html" class="btn btn-primary" style="margin-right: 12px;">
+                <div style="margin-top: 16px;">
+                  <a href="ml-analysis/notebook.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">
                     <i class="fas fa-book-open"></i> 查看 Notebook
                   </a>
-                  <a href="ml-analysis/index.html" class="btn btn-secondary">
-                    <i class="fas fa-info-circle"></i> 项目详情
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Descriptive Analysis Project -->
+          <article class="project-card" onclick="location.href='descriptive-analysis/index.html'">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <div class="project-icon" style="height: 120px;">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="project-content" style="flex: 1;">
+                <div class="project-tag">数据分析</div>
+                <h3>营销渠道效果分析</h3>
+                <p>
+                  通过描述型分析和数据可视化，评估三大营销渠道的投放效果和ROI，
+                  运用转化漏斗为营销决策提供支撑。
+                </p>
+                <div class="project-metrics">
+                  <span><i class="fas fa-layer-layer"></i> 3 个渠道</span>
+                  <span><i class="fas fa-percentage"></i> ROI分析</span>
+                </div>
+                <div style="margin-top: 16px;">
+                  <a href="descriptive-analysis/notebook.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">
+                    <i class="fas fa-book-open"></i> 查看 Notebook
                   </a>
                 </div>
               </div>
