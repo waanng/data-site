@@ -24,8 +24,6 @@
       <ul class="nav-links">
         <li><a href="../index.html">首页</a></li>
         <li><a href="index.html" class="active">项目</a></li>
-        <li><a href="../ml-analysis/index.html">机器学习</a></li>
-        <li><a href="https://github.com/waanng/playground" target="_blank"><i class="fab fa-github"></i></a></li>
       </ul>
       
       <button class="mobile-menu-btn">
@@ -40,14 +38,6 @@
         <div class="section-header">
           <h2>数据分析项目</h2>
           <p>从数据探索到模型部署的完整项目案例</p>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;">
-          <button class="filter-btn active" data-filter="all">全部</button>
-          <button class="filter-btn" data-filter="ml">机器学习</button>
-          <button class="filter-btn" data-filter="viz">可视化</button>
-          <button class="filter-btn" data-filter="ts">时间序列</button>
         </div>
 
         <div class="projects-grid">
@@ -82,61 +72,6 @@
               </a>
             </div>
           </article>
-
-          <!-- Coming Soon Cards -->
-          <article class="project-card" style="opacity: 0.6;" data-category="ts">
-            <div class="project-image" style="background: linear-gradient(135deg, #e0e0e0, #f5f5f5); display: flex; align-items: center; justify-content: center;">
-              <i class="fas fa-clock" style="font-size: 48px; color: #999;"></i>
-            </div>
-            
-            <div class="project-content">
-              <h3>股票价格预测</h3>
-              <p>基于LSTM的时间序列预测模型，预测股票走势。</p>
-              <div class="project-tech-tags" style="margin-bottom: 16px;">
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">TensorFlow</span>
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">LSTM</span>
-              </div>
-              <div class="project-metrics">
-                <span><i class="fas fa-clock"></i> 即将上线</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" style="opacity: 0.6;" data-category="viz">
-            <div class="project-image" style="background: linear-gradient(135deg, #e0e0e0, #f5f5f5); display: flex; align-items: center; justify-content: center;">
-              <i class="fas fa-chart-pie" style="font-size: 48px; color: #999;"></i>
-            </div>
-            
-            <div class="project-content">
-              <h3>销售数据可视化大屏</h3>
-              <p>使用Plotly和Dash构建的交互式数据可视化仪表盘。</p>
-              <div class="project-tech-tags" style="margin-bottom: 16px;">
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">Plotly</span>
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">Dash</span>
-              </div>
-              <div class="project-metrics">
-                <span><i class="fas fa-clock"></i> 即将上线</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" style="opacity: 0.6;" data-category="ml">
-            <div class="project-image" style="background: linear-gradient(135deg, #e0e0e0, #f5f5f5); display: flex; align-items: center; justify-content: center;">
-              <i class="fas fa-comments" style="font-size: 48px; color: #999;"></i>
-            </div>
-            
-            <div class="project-content">
-              <h3>文本情感分析</h3>
-              <p>基于NLP的用户评论情感分析，识别正面和负面情绪。</p>
-              <div class="project-tech-tags" style="margin-bottom: 16px;">
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">NLP</span>
-                <span style="display: inline-block; padding: 4px 8px; background: #f5f5f5; color: #666; border-radius: 4px; font-size: 12px; margin-right: 8px;">BERT</span>
-              </div>
-              <div class="project-metrics">
-                <span><i class="fas fa-clock"></i> 即将上线</span>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -154,7 +89,6 @@
           <ul class="footer-links">
             <li><a href="../index.html">首页</a></li>
             <li><a href="index.html">项目</a></li>
-            <li><a href="../ml-analysis/index.html">机器学习</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -172,24 +106,6 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
-  <script>
-    // Filter functionality
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        const filter = this.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
   
   <style>
     .filter-btn {
