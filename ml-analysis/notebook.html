@@ -3,236 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notebook 预览 - 机器学习项目 | Data Insights</title>
-  <meta name="description" content="在线查看完整的机器学习分析Notebook，包含数据探索、特征工程、模型训练和结果可视化全流程。">
+  <title>Notebook | DATA LABS</title>
+  <meta name="description" content="在线查看完整的机器学习分析Notebook">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   
   <style>
-    body {
-      overflow: hidden;
-    }
-    
-    .notebook-viewer {
+    .viewer-layout {
       display: flex;
-      height: 100vh;
-      padding-top: 70px;
+      height: calc(100vh - 56px);
+      padding-top: 56px;
     }
     
-    .notebook-sidebar {
+    .viewer-sidebar {
       width: 300px;
-      background: #f8f9fa;
+      background: var(--bg-secondary);
       border-right: 1px solid var(--border-color);
-      padding: 30px 20px;
+      padding: 24px;
       overflow-y: auto;
       flex-shrink: 0;
     }
     
-    .notebook-content {
+    .viewer-content {
       flex: 1;
       position: relative;
+      background: white;
       overflow: hidden;
     }
     
-    .notebook-content iframe {
+    .viewer-content iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
     
-    .toc-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-    
-    .toc-list {
-      list-style: none;
-      margin-bottom: 30px;
-    }
-    
-    .toc-list li {
-      margin-bottom: 4px;
-    }
-    
-    .toc-list a {
-      display: block;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      color: var(--text-secondary);
-      transition: var(--transition);
-    }
-    
-    .toc-list a:hover {
-      background: white;
-      color: var(--primary-color);
-    }
-    
-    .notebook-info {
-      padding: 20px;
-      background: white;
-      border-radius: var(--radius-md);
-      margin-bottom: 20px;
-    }
-    
-    .notebook-info h3 {
-      font-size: 16px;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
-    
-    .notebook-info .meta {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-    
-    .notebook-info .meta i {
-      width: 16px;
-      margin-right: 8px;
-      color: var(--secondary-color);
-    }
-    
-    .download-btn {
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-primary);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: var(--radius-md);
-      font-size: 14px;
-      font-weight: 500;
-      transition: var(--transition);
+      z-index: 100;
     }
     
-    .download-btn:hover {
-      background: #283593;
+    .loading-overlay.hidden {
+      display: none;
     }
     
-    .loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: var(--text-secondary);
-    }
-    
-    .loading i {
+    .loading-overlay i {
       font-size: 48px;
+      color: var(--accent-primary);
+      animation: spin 2s linear infinite;
       margin-bottom: 16px;
-      color: var(--secondary-color);
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .download-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
     }
     
     @media (max-width: 768px) {
-      .notebook-sidebar {
+      .viewer-sidebar {
         display: none;
-      }
-      
-      .notebook-viewer {
-        flex-direction: column;
-      }
-      
-      .notebook-content {
-        height: calc(100vh - 70px);
       }
     }
   </style>
 </head>
 <body>
-  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: white;">
-    <nav class="container">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <span>Data Insights</span>
-      </a>
-      
-      <ul class="nav-links">
-        <li><a href="../index.html">首页</a></li>
-        <li><a href="index.html">项目介绍</a></li>
-        <li><a href="notebook.html" class="active">Notebook</a></li>
-      </ul>
-      
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
+  <!-- 顶部状态栏 -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-icon">DL</div>
+      <div>
+        <div class="brand-text">DATA LABS</div>
+        <div class="brand-sub">数据分析实验室</div>
+      </div>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="index.html">项目介绍</a>
+      <a href="notebook.html" class="active">Notebook</a>
     </nav>
   </header>
 
-  <div class="notebook-viewer"
-    <aside class="notebook-sidebar">
+  <div class="viewer-layout">
+    <aside class="viewer-sidebar">
       <div class="notebook-info">
         <h3><i class="fas fa-brain"></i> 机器学习分类预测</h3>
-        <div class="meta">
-          <div><i class="fas fa-database"></i> 4,050条数据</div>
-          <div><i class="fas fa-chart-line"></i> 3种模型对比</div>
-          <div><i class="fas fa-star"></i> AUC 0.70</div>
-          <div><i class="fas fa-clock"></i> 预计30分钟</div>
-        </div>
+        <ul class="notebook-meta-list">
+          <li>
+            <i class="fas fa-database"></i>
+            <span>4,050 条数据</span>
+          </li>
+          <li>
+            <i class="fas fa-chart-line"></i>
+            <span>3 种模型对比</span>
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            <span>AUC 0.70</span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span>预计阅读 30 分钟</span>
+          </li>
+        </ul>
       </div>
       
       <div class="toc-title">目录导航</div>
       <ul class="toc-list">
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#环境准备" target="_blank">环境准备</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#数据加载" target="_blank">数据加载</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#探索性分析" target="_blank">探索性分析</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#特征工程" target="_blank">特征工程</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#模型训练" target="_blank">模型训练</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#模型评估" target="_blank">模型评估</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#结果可视化" target="_blank">结果可视化</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#可解释性" target="_blank">可解释性分析</a></li>
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb#业务洞察" target="_blank">业务洞察</a></li>
+        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb" target="notebook-frame">完整 Notebook</a></li>
       </ul>
       
-      <a href="https://raw.githubusercontent.com/waanng/data-site/main/ml_analysis_notebook_executed.ipynb" class="download-btn" target="_blank">
-        <i class="fas fa-download"></i>
-        下载 Notebook
-      </a>
+      <div class="download-section">
+        <div class="toc-title">下载</div>
+        <a href="https://raw.githubusercontent.com/waanng/data-site/main/ml_analysis_notebook_executed.ipynb" 
+           class="btn btn-secondary" 
+           style="width: 100%; justify-content: center;"
+           target="_blank">
+          <i class="fas fa-download"></i>
+          下载 .ipynb 文件
+        </a>
+      </div>
     </aside>
 
-    <div class="notebook-content">
-      <div class="loading" id="loading">
-        <i class="fas fa-circle-notch fa-spin"></i>
-        <p>正在加载 Notebook...</p>
+    <div class="viewer-content">
+      <div class="loading-overlay" id="loading">
+        <i class="fas fa-circle-notch"></i>
+        <p style="color: var(--text-secondary);">正在加载 Notebook...</p>
+        <p style="color: var(--text-muted); font-size: 13px; margin-top: 8px;">首次加载可能需要 10-20 秒</p>
       </div>
       
-      <!-- 使用 nbviewer 嵌入完整的执行过的 notebook -->
       <iframe 
         id="notebook-frame"
-        src="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb" 
-        onload="document.getElementById('loading').style.display='none'"
-        sandbox="allow-scripts allow-same-origin"
+        name="notebook-frame"
+        src="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb"
+        onload="document.getElementById('loading').classList.add('hidden')"
       ></iframe>
     </div>
   </div>
-
-  <script src="../assets/js/main.js"></script>
-  
-  <script>
-    // 移动端显示/隐藏侧边栏
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      const sidebar = document.querySelector('.notebook-sidebar');
-      sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
-      sidebar.style.position = 'fixed';
-      sidebar.style.top = '70px';
-      sidebar.style.left = '0';
-      sidebar.style.right = '0';
-      sidebar.style.bottom = '0';
-      sidebar.style.zIndex = '999';
-      sidebar.style.width = '100%';
-    });
-  </script>
 </body>
 </html>
