@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户购买行为预测 - 机器学习项目 | Data Insights</title>
+  <meta name="description" content="完整的二分类机器学习项目，从数据探索、特征工程到模型训练与评估，展示了标准的数据科学工作流程。">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  
+  <style>
+    .project-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+      color: white;
+    }
+    
+    .breadcrumb {
+      margin-bottom: 30px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    
+    .breadcrumb a {
+      color: white;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .project-hero h1 {
+      font-size: 42px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .project-hero .subtitle {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 700px;
+    }
+    
+    .project-overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: -40px 0 60px;
+    }
+    
+    .overview-card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    
+    .overview-card .number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    
+    .overview-card .label {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    .project-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+      border-left: 4px solid var(--secondary-color);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin: 30px 0;
+    }
+    
+    .highlight-box h3 {
+      margin-bottom: 12px;
+      color: var(--primary-color);
+    }
+    
+    .steps-timeline {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+      position: relative;
+    }
+    
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--border-color);
+    }
+    
+    .step-item {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-weight: 600;
+    }
+    
+    .step-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin: 50px 0;
+      padding: 40px;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 50px 0;
+    }
+    
+    .feature-item {
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 24px;
+    }
+    
+    .feature-item h3 {
+      margin-bottom: 12px;
+    }
+    
+    .feature-item p {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .project-overview {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps-timeline {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .steps-timeline::before {
+        display: none;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <span>Data Insights</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../projects/index.html">项目</a></li>
+        <li><a href="index.html" class="active">机器学习</a></li>
+        <li><a href="https://github.com/waanng/playground" target="_blank"><i class="fab fa-github"></i></a></li>
+      </ul>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index.html">首页</a> > 
+          <a href="../projects/index.html">项目</a> > 
+          <span>机器学习分类预测</span>
+        </div>
+        
+        <h1>客户购买行为预测</h1>
+        <p class="subtitle">
+          完整的二分类机器学习项目，从数据探索、特征工程到模型训练与评估，
+          展示了标准的数据科学工作流程。
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="project-overview">
+        <div class="overview-card">
+          <div class="number">4,050</div>
+          <div class="label">数据记录</div>
+        </div>
+        <div class="overview-card">
+          <div class="number">7</div>
+          <div class="label">特征数量</div>
+        </div>
+        <div class="overview-card">
+          <div class="number">3</div>
+          <div class="label">模型对比</div>
+        </div>
+        <div class="overview-card">
+          <div class="number">0.70</div>
+          <div class="label">最佳AUC</div>
+        </div>
+      </div>
+
+      <div class="project-content">
+        <div class="highlight-box">
+          <h3><i class="fas fa-lightbulb"></i> 项目概述</h3>
+          <p>
+            这是一个完整的二分类机器学习项目，使用4,050条客户数据预测客户是否会购买产品（Y=1 或 Y=0）。
+            项目涵盖了数据探索（EDA）、特征工程、模型训练、模型评估和可解释性分析的全流程，
+            是入门机器学习的绝佳实战案例。
+          </p>
+        </div>
+
+        <h2>项目亮点</h2>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>数据探索可视化</h3>
+            <p>6维度的EDA分析，包括分布、相关性、类别对比等全方位数据探索</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>多模型对比</h3>
+            <p>逻辑回归、决策树、随机森林三种算法全面评估对比</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>特征重要性分析</h3>
+            <p>深入分析哪些因素最影响客户购买决策，提供业务洞察</p>
+          </div>
+        </div>
+
+        <h2>分析流程</h2>
+        
+        <div class="steps-timeline">
+          <div class="step-item">
+            <div class="step-icon">1</div>
+            <div class="step-label">数据加载</div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-icon">2</div>
+            <div class="step-label">EDA探索</div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-icon">3</div>
+            <div class="step-label">特征工程</div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-icon">4</div>
+            <div class="step-label">模型训练</div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-icon">5</div>
+            <div class="step-label">结果评估</div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-icon">6</div>
+            <div class="step-label">业务洞察</div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: var(--accent-color);">
+          <h3><i class="fas fa-star"></i> 关键技术</h3>
+          <ul style="margin-left: 20px; line-height: 2;">
+            <li><strong>数据清洗与探索性分析（EDA）</strong>：识别数据质量问题，发现数据规律</li>
+            <li><strong>特征工程</strong>：标签编码、特征分箱、交互特征创建</li>
+            <li><strong>模型对比</strong>：逻辑回归、决策树、随机森林三种算法</li>
+            <li><strong>模型评估</strong>：准确率、精确率、召回率、F1、AUC等多维度指标</li>
+            <li><strong>可视化</strong>：9宫格综合分析仪表盘</li>
+            <li><strong>可解释性</strong>：特征重要性分析，理解模型决策逻辑</li>
+          </ul>
+        </div>
+
+        <div class="action-buttons">
+          <a href="notebook.html" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;">
+            <i class="fas fa-book-open"></i>
+            在线查看 Notebook
+          </a>
+          
+          <a href="https://github.com/waanng/playground/tree/main/data_analysis" target="_blank" class="btn btn-secondary" style="padding: 16px 32px; font-size: 16px;">
+            <i class="fab fa-github"></i>
+            在 GitHub 查看源码
+          </a>
+        </div>
+
+        <h2>学习路径建议</h2>
+        
+        <p>如果你刚开始学习数据分析，建议按照以下顺序学习本项目：</p>
+        
+        <ol style="line-height: 2; margin: 20px 0 20px 30px;">
+          <li>先阅读<strong>项目介绍页</strong>（本页），了解项目全貌</li>
+          <li>进入<strong>Notebook</strong>，按照代码cell逐步学习\n

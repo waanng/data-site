@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Insights - 数据驱动的洞察</title>
+  <meta name="description" content="探索数据背后的故事，用机器学习发现规律，用可视化传递价值。数据分析项目展示与分享平台。">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Data Insights - 数据驱动的洞察">
+  <meta property="og:description" content="探索数据背后的故事，用机器学习发现规律，用可视化传递价值。">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <span>Data Insights</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="projects/index.html">项目</a></li>
+        <li><a href="ml-analysis/index.html">机器学习</a></li>
+        <li><a href="https://github.com/waanng/playground" target="_blank"><i class="fab fa-github"></i></a></li>
+      </ul>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>
+            <span class="highlight">数据驱动</span>的洞察
+          </h1>
+          <p>
+            探索数据背后的故事，用<span class="typewriter">机器学习</span>发现规律，用可视化传递价值。
+          </p>
+          <div class="hero-buttons">
+            <a href="projects/index.html" class="btn btn-primary">
+              <i class="fas fa-folder-open"></i>
+              查看项目
+            </a>
+            <a href="https://github.com/waanng/playground" target="_blank" class="btn btn-secondary">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2>精选项目</h2>
+          <p>从数据探索到模型部署的完整数据分析工作流程</p>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- ML Project Card -->
+          <article class="project-card">
+            <div class="project-image">
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a237e, #00bcd4); color: white; font-size: 48px;">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="project-overlay">
+                <span class="project-tag">机器学习</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>客户购买行为预测</h3>
+              <p>完整的二分类机器学习项目，包含数据探索、特征工程、模型训练与评估全流程。</p>
+              <div class="project-metrics">
+                <span><i class="fas fa-database"></i> 4,050条</span>
+                <span><i class="fas fa-chart-line"></i> AUC 0.70</span>
+              </div>
+              <a href="ml-analysis/index.html" class="project-link">
+                查看详情 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Placeholder for future projects -->
+          <article class="project-card" style="opacity: 0.6;">
+            <div class="project-image" style="background: linear-gradient(135deg, #e0e0e0, #f5f5f5); display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-clock" style="font-size: 48px; color: #999;"></i>
+            </div>
+            <div class="project-content">
+              <h3>时间序列分析</h3>
+              <p>敬请期待...</p>
+              <div class="project-metrics">
+                <span><i class="fas fa-clock"></i> 即将上线</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" style="opacity: 0.6;">
+            <div class="project-image" style="background: linear-gradient(135deg, #e0e0e0, #f5f5f5); display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-chart-pie" style="font-size: 48px; color: #999;"></i>
+            </div>
+            <div class="project-content">
+              <h3>数据可视化专题</h3>
+              <p>敬请期待...</p>
+              <div class="project-metrics">
+                <span><i class="fas fa-clock"></i> 即将上线</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="projects/index.html" class="btn btn-secondary">
+            查看全部项目 <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="section-header">
+          <h2>技术栈</h2>
+          <p>使用业界领先的工具和技术进行数据分析</p>
+        </div>
+        
+        <div class="tech-stack">
+          <div class="tech-item">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-table"></i>
+            <span>Pandas</span>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-calculator"></i>
+            <span>NumPy</span>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Matplotlib</span>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-brain"></i>
+            <span>Scikit-learn</span>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-book"></i>
+            <span>Jupyter</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Data Insights</h3>
+          <p>数据驱动的洞察，探索数据背后的故事。通过机器学习发现规律，用可视化传递价值。</p>
+        </div>
+        <div class="footer-section">
+          <h3>快速链接</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="projects/index.html">项目</a></li>
+            <li><a href="ml-analysis/index.html">机器学习</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>联系方式</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:wangan@shuce.top"><i class="fas fa-envelope"></i> wangan@shuce.top</a></li>
+            <li><a href="https://github.com/waanng" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="https://waanng.cn" target="_blank"><i class="fas fa-globe"></i> 个人主页</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Data Insights. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
