@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时间序列分析 | DATA LABS</title>
+  <meta name="description" content="对月度客户数量进行时间序列分析，包含趋势分析、季节性分解和预测模型。">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <!-- 顶部状态栏 -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-icon">DL</div>
+      <div>
+        <div class="brand-text">DATA LABS</div>
+        <div class="brand-sub">数据分析实验室</div>
+      </div>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="index.html" class="active">项目介绍</a>
+      <a href="notebook.html">Notebook</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero -->
+    <section style="padding: 100px 0 60px; background: var(--bg-secondary);">
+      <div class="container">
+        <div style="margin-bottom: 20px;">
+          <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">
+            Time Series Analysis
+          </span>
+        </div>
+        
+        <h1 style="font-size: 42px; font-weight: 700; margin-bottom: 20px;">
+          时间序列分析
+        </h1>
+        
+        <p style="font-size: 18px; color: var(--text-secondary); max-width: 700px; line-height: 1.7;">
+          对月度客户数量进行时间序列分析，包含趋势分析、季节性分解，
+          探索数据随时间变化的规律，为业务决策提供数据支撑。
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <section style="padding: 60px 0; background: var(--bg-primary);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+          <div class="data-card">
+            <div class="card-title" style="margin-bottom: 12px;">时间跨度</div>
+            <div class="card-value mono">6</div>
+            <div class="card-label">年数据 (2009-2014)</div>
+          </div>
+          
+          <div class="data-card">
+            <div class="card-title" style="margin-bottom: 12px;">数据记录</div>
+            <div class="card-value mono">57</div>
+            <div class="card-label">条月度数据</div>
+          </div>
+          
+          <div class="data-card">
+            <div class="card-title" style="margin-bottom: 12px;">分析维度</div>
+            <div class="card-value mono">5</div>
+            <div class="card-label">个维度分析</div>
+          </div>
+          
+          <div class="data-card">
+            <div class="card-title" style="margin-bottom: 12px;">可视化</div>
+            <div class="card-value mono">2</div>
+            <div class="card-label">组综合图表</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>分析维度</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="data-card" style="text-align: center;">
+            <div style="width: 60px; height: 60px; background: var(--bg-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: var(--accent-primary);">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 style="margin-bottom: 12px;">趋势分析</h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">
+              12个月移动平均分析，捕捉长期趋势变化</p>
+          </div>
+          
+          <div class="data-card" style="text-align: center;">
+            <div style="width: 60px; height: 60px; background: var(--bg-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: var(--accent-secondary);">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3 style="margin-bottom: 12px;">季节性分解</h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">
+              分解趋势、季节性和残差，理解周期性波动</p>
+          </div>
+          
+          <div class="data-card" style="text-align: center;">
+            <div style="width: 60px; height: 60px; background: var(--bg-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: var(--accent-gold);">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <h3 style="margin-bottom: 12px;">增长率分析</h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">
+              计算年度环比增长率，评估业务发展趋势</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Schema -->
+    <section class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <h2>数据字段说明</h2>
+        </div>
+        
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 16px 20px; text-align: left; font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid var(--border-color);">字段名</th>
+                <th style="padding: 16px 20px; text-align: left; font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid var(--border-color);">说明</th>
+                <th style="padding: 16px 20px; text-align: left; font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid var(--border-color);">类型</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 14px 20px; border-bottom: 1px solid var(--border-color); font-family: var(--font-mono);">日期</td>
+                <td style="padding: 14px 20px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">月度日期 (Jan-09 格式)</td>
+                <td style="padding: 14px 20px; border-bottom: 1px solid var(--border-color);"><span style="background: rgba(0,212,255,0.1); color: var(--accent-primary); padding: 4px 8px; border-radius: 4px; font-size: 12px;">日期</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 20px; font-family: var(--font-mono);">客户数</td>
+                <td style="padding: 14px 20px; color: var(--text-secondary);">月度客户数量</td>
+                <td style="padding: 14px 20px;"><span style="background: rgba(255,215,0,0.1); color: var(--accent-gold); padding: 4px 8px; border-radius: 4px; font-size: 12px;">数值</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>分析流程</h2>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; position: relative; padding: 40px 0;">
+          <div style="position: absolute; top: 60px; left: 10%; right: 10%; height: 2px; background: var(--border-color);"></div>
+          
+          <div style="text-align: center; position: relative; z-index: 1; flex: 1;">
+            <div style="width: 40px; height: 40px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 600; color: var(--bg-primary);">1</div>
+            <div style="font-weight: 600; margin-bottom: 4px;">数据加载</div>
+            <div style="font-size: 13px; color: var(--text-muted);">清洗与转换</div>
+          </div>
+          
+          <div style="text-align: center; position: relative; z-index: 1; flex: 1;">
+            <div style="width: 40px; height: 40px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 600; color: var(--bg-primary);">2</div>
+            <div style="font-weight: 600; margin-bottom: 4px;">趋势分析</div>
+            <div style="font-size: 13px; color: var(--text-muted);">移动平均</div>
+          </div>
+          
+          <div style="text-align: center; position: relative; z-index: 1; flex: 1;">
+            <div style="width: 40px; height: 40px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 600; color: var(--bg-primary);">3</div>
+            <div style="font-weight: 600; margin-bottom: 4px;">季节性分解</div>
+            <div style="font-size: 13px; color: var(--text-muted);">周期模式</div>
+          </div>
+          
+          <div style="text-align: center; position: relative; z-index: 1; flex: 1;">
+            <div style="width: 40px; height: 40px; background: var(--accent-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 600; color: var(--bg-primary);">4</div>
+            <div style="font-weight: 600; margin-bottom: 4px;">洞察结论</div>
+            <div style="font-size: 13px; color: var(--text-muted);">业务建议</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="data-card" style="text-align: center; padding: 60px;">
+          <h2 style="margin-bottom: 16px;">开始探索</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 16px;">
+            查看完整的 Jupyter Notebook，跟随代码逐步学习时间序列分析方法
+          </p>
+          
+          <a href="notebook.html" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;">
+            <i class="fas fa-book-open"></i>
+            查看完整 Notebook
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>DATA LABS</h3>
+          <p>数据驱动的洞察，探索数据背后的故事。</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>导航</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="index.html">项目介绍</a></li>
+            <li><a href="notebook.html">Notebook</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>联系</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:wangan@shuce.top">Email</a></li>
+            <li><a href="https://github.com/waanng" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 DATA LABS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

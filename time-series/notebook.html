@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notebook | DATA LABS</title>
+  <meta name="description" content="时间序列分析 - 客户数量预测 Notebook">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  
+  <style>
+    .viewer-layout {
+      display: flex;
+      height: calc(100vh - 56px);
+      padding-top: 56px;
+    }
+    
+    .viewer-sidebar {
+      width: 300px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      padding: 24px;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    
+    .viewer-content {
+      flex: 1;
+      position: relative;
+      background: white;
+      overflow: hidden;
+    }
+    
+    .viewer-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+    
+    .loading-overlay.hidden {
+      display: none;
+    }
+    
+    .loading-overlay i {
+      font-size: 48px;
+      color: var(--accent-primary);
+      animation: spin 2s linear infinite;
+      margin-bottom: 16px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .download-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 768px) {
+      .viewer-sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部状态栏 -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-icon">DL</div>
+      <div>
+        <div class="brand-text">DATA LABS</div>
+        <div class="brand-sub">数据分析实验室</div>
+      </div>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="index.html">项目介绍</a>
+      <a href="notebook.html" class="active">Notebook</a>
+    </nav>
+  </header>
+
+  <div class="viewer-layout">
+    <aside class="viewer-sidebar">
+      <div class="notebook-info">
+        <h3><i class="fas fa-chart-line"></i> 时间序列分析</h3>
+        <ul class="notebook-meta-list">
+          <li>
+            <i class="fas fa-calendar"></i>
+            <span>2009-2014年月度数据</span>
+          </li>
+          <li>
+            <i class="fas fa-database"></i>
+            <span>57条记录</span>
+          </li>
+          <li>
+            <i class="fas fa-layer-group"></i>
+            <span>6年趋势分析</span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span>预计阅读 15 分钟</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="toc-title">目录导航</div>
+      <ul class="toc-list">
+        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/time-series/time_series_analysis_executed.ipynb" target="notebook-frame">完整 Notebook</a></li>
+      </ul>
+      
+      <div class="download-section">
+        <div class="toc-title">下载</div>
+        <a href="https://raw.githubusercontent.com/waanng/data-site/main/time-series/time_series_analysis_executed.ipynb" 
+           class="btn btn-secondary" 
+           style="width: 100%; justify-content: center;"
+           target="_blank">
+          <i class="fas fa-download"></i>
+          下载 .ipynb 文件
+        </a>
+      </div>
+    </aside>
+
+    <div class="viewer-content">
+      <div class="loading-overlay" id="loading">
+        <i class="fas fa-circle-notch"></i>
+        <p style="color: var(--text-secondary);">正在加载 Notebook...</p>
+        <p style="color: var(--text-muted); font-size: 13px; margin-top: 8px;">首次加载可能需要 10-20 秒</p>
+      </div>
+      
+      <iframe 
+        id="notebook-frame"
+        name="notebook-frame"
+        src="https://nbviewer.org/github/waanng/data-site/blob/main/time-series/time_series_analysis_executed.ipynb"
+        onload="document.getElementById('loading').classList.add('hidden')"
+      ></iframe>
+    </div>
+  </div>
+</body>
+</html>
