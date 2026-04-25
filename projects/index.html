@@ -3,71 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>数据分析项目 | Data Insights</title>
-  <meta name="description" content="探索数据分析项目集，包含机器学习、数据可视化、时间序列分析等多种类型的数据分析项目。">
-  
+  <title>项目展示 | DATA LABS</title>
+  <meta name="description" content="DATA LABS 数据分析项目集，包含机器学习、营销渠道分析、时间序列分析等实战案例。">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <span>Data Insights</span>
-      </a>
-      
-      <ul class="nav-links">
-        <li><a href="../index.html">首页</a></li>
-        <li><a href="index.html" class="active">项目</a></li>
-      </ul>
-      
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
+  <header class="top-bar">
+    <a class="brand" href="../index.html" aria-label="DATA LABS 首页">
+      <div class="brand-icon">DL</div>
+      <div>
+        <div class="brand-text">DATA LABS</div>
+        <div class="brand-sub">数据分析实验室</div>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="index.html" class="active">项目</a>
+      <a href="../ml-analysis/notebook.html">Notebook</a>
     </nav>
+
+    <button class="mobile-menu-btn" aria-label="打开导航菜单">
+      <i class="fas fa-bars"></i>
+    </button>
   </header>
 
-  <main>
-    <section class="section" style="padding-top: 140px;">
+  <main class="main-content">
+    <section class="section" style="padding-top: 96px;">
       <div class="container">
         <div class="section-header">
-          <h2>数据分析项目</h2>
-          <p>从数据探索到模型部署的完整项目案例</p>
+          <h2>项目展示</h2>
+          <p>把数据分析过程、模型结果和业务洞察整理成可阅读、可复用的作品集。</p>
         </div>
 
         <div class="projects-grid">
-          <!-- ML Project -->
-          <article class="project-card" data-category="ml">
+          <article class="project-card">
             <div class="project-image">
-              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a237e, #00bcd4); color: white; font-size: 48px;">
+              <div class="project-icon">
                 <i class="fas fa-brain"></i>
               </div>
-              <div class="project-overlay">
-                <span class="project-tag">机器学习</span>
-              </div>
+              <span class="project-tag">机器学习</span>
             </div>
-            
+
             <div class="project-content">
               <h3>客户购买行为预测</h3>
-              <p>完整的二分类机器学习项目，包含数据探索、特征工程、模型训练与评估全流程。</p>
-              
-              <div class="project-tech-tags" style="margin-bottom: 16px;">
-                <span style="display: inline-block; padding: 4px 8px; background: #e3f2fd; color: #1976d2; border-radius: 4px; font-size: 12px; margin-right: 8px;">Python</span>
-                <span style="display: inline-block; padding: 4px 8px; background: #e3f2fd; color: #1976d2; border-radius: 4px; font-size: 12px; margin-right: 8px;">Scikit-learn</span>
-                <span style="display: inline-block; padding: 4px 8px; background: #e3f2fd; color: #1976d2; border-radius: 4px; font-size: 12px; margin-right: 8px;">Pandas</span>
-              </div>
-              
+              <p>完整的二分类机器学习项目，覆盖数据探索、特征工程、模型训练与评估。</p>
               <div class="project-metrics">
-                <span><i class="fas fa-database"></i> 4,050条</span>
+                <span><i class="fas fa-database"></i> 4,050 条</span>
                 <span><i class="fas fa-chart-line"></i> AUC 0.70</span>
               </div>
-              
               <a href="../ml-analysis/index.html" class="project-link">
+                查看详情 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <span class="project-tag">描述型分析</span>
+            </div>
+
+            <div class="project-content">
+              <h3>营销渠道效果分析</h3>
+              <p>用 ROI、转化漏斗和渠道对比评估投放效果，沉淀可执行的营销优化建议。</p>
+              <div class="project-metrics">
+                <span><i class="fas fa-layer-group"></i> 3 个渠道</span>
+                <span><i class="fas fa-percentage"></i> ROI 分析</span>
+              </div>
+              <a href="../descriptive-analysis/index.html" class="project-link">
+                查看详情 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <span class="project-tag">时间序列</span>
+            </div>
+
+            <div class="project-content">
+              <h3>客户数量趋势分析</h3>
+              <p>对 6 年月度客户数据进行趋势、季节性和增长率分析，识别长期变化规律。</p>
+              <div class="project-metrics">
+                <span><i class="fas fa-calendar"></i> 6 年数据</span>
+                <span><i class="fas fa-wave-square"></i> 趋势分解</span>
+              </div>
+              <a href="../time-series/index.html" class="project-link">
                 查看详情 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
@@ -81,55 +112,31 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Data Insights</h3>
-          <p>数据驱动的洞察，探索数据背后的故事。</p>
+          <h3>DATA LABS</h3>
+          <p>数据驱动的洞察，探索数据背后的故事，用分析和可视化支持业务判断。</p>
         </div>
         <div class="footer-section">
-          <h3>快速链接</h3>
+          <h3>导航</h3>
           <ul class="footer-links">
             <li><a href="../index.html">首页</a></li>
             <li><a href="index.html">项目</a></li>
+            <li><a href="../ml-analysis/notebook.html">Notebook</a></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>联系方式</h3>
+          <h3>联系</h3>
           <ul class="footer-links">
-            <li><a href="mailto:wangan@shuce.top"><i class="fas fa-envelope"></i> wangan@shuce.top</a></li>
-            <li><a href="https://github.com/waanng" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="mailto:wangan@shuce.top"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://github.com/waanng" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Data Insights. All rights reserved.</p>
+        <p>&copy; 2026 DATA LABS. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="../assets/js/main.js"></script>
-  
-  <style>
-    .filter-btn {
-      padding: 10px 24px;
-      border: 2px solid var(--border-color);
-      background: white;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: var(--transition);
-    }
-    
-    .filter-btn:hover {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-    }
-    
-    .filter-btn.active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-    }
-  </style>
 </body>
 </html>

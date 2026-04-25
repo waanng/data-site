@@ -14,8 +14,8 @@
   <style>
     .viewer-layout {
       display: flex;
-      height: calc(100vh - 56px);
-      padding-top: 56px;
+      height: calc(100vh - 64px);
+      padding-top: 64px;
     }
     
     .viewer-sidebar {
@@ -95,9 +95,14 @@
     
     <nav class="nav-links">
       <a href="../index.html">首页</a>
+      <a href="../projects/index.html">项目</a>
       <a href="index.html">项目介绍</a>
       <a href="notebook.html" class="active">Notebook</a>
     </nav>
+
+    <button class="mobile-menu-btn" aria-label="打开导航菜单">
+      <i class="fas fa-bars"></i>
+    </button>
   </header>
 
   <div class="viewer-layout">
@@ -152,9 +157,11 @@
         id="notebook-frame"
         name="notebook-frame"
         src="https://nbviewer.org/github/waanng/data-site/blob/main/time-series/time_series_analysis_executed.ipynb"
+        referrerpolicy="no-referrer"
         onload="document.getElementById('loading').classList.add('hidden')"
       ></iframe>
     </div>
   </div>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>

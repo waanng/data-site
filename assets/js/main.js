@@ -3,26 +3,33 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   
-  if (mobileMenuBtn) {
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
     mobileMenuBtn.addEventListener('click', function() {
       navLinks.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
     });
   }
   
   // 导航栏滚动效果
   const header = document.querySelector('header');
-  let lastScroll = 0;
   
   window.addEventListener('scroll', function() {
+    if (!header) return;
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 100) {
-      header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+      header.style.boxShadow = '0 10px 30px rgba(15, 23, 42, 0.08)';
     } else {
       header.style.boxShadow = 'none';
     }
-    
-    lastScroll = currentScroll;
   });
   
   // 平滑滚动

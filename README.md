@@ -1,72 +1,64 @@
-# Data Insights - 数据分析项目展示网站
+# DATA LABS - 数据分析项目展示网站
 
-## 🌐 在线访问
+## 在线访问
 
-**网站地址**: https://data.waanng.cn
+网站地址: https://data.waanng.cn
 
-## 📁 项目结构
+## 项目概览
 
-```
+这是一个静态数据分析作品集网站，用于展示机器学习、描述型分析、时间序列等项目案例。网站托管在 GitHub Pages，主要由 HTML、CSS 和原生 JavaScript 组成。
+
+## 项目结构
+
+```text
 data-site/
-├── index.html                   # 首页
-├── projects/
-│   └── index.html              # 项目列表页
-├── ml-analysis/                # 机器学习项目
-│   ├── index.html              # 项目介绍页
-│   ├── notebook.html           # Notebook预览页
-│   └── assets/                 # 项目资源
+├── index.html                         # 首页
+├── projects/index.html                # 项目列表页
+├── ml-analysis/                       # 机器学习项目
+│   ├── index.html
+│   └── notebook.html
+├── descriptive-analysis/              # 营销渠道效果分析
+│   ├── index.html
+│   └── notebook.html
+├── time-series/                       # 时间序列分析
+│   ├── index.html
+│   └── notebook.html
 ├── assets/
-│   ├── css/main.css           # 主样式文件
-│   └── js/main.js             # 主脚本文件
-└── CNAME                       # 自定义域名配置
+│   ├── css/main.css                   # 全站样式
+│   └── js/main.js                     # 导航与交互动效
+└── CNAME                              # 自定义域名配置
 ```
 
-## 🎨 设计特点
+## 设计方向
 
-- **现代简约**: 深蓝+科技青的配色方案
-- **响应式设计**: 完美适配桌面、平板、手机
-- **平滑动画**: 滚动显示、悬停效果
-- **代码高亮**: Notebook页面支持代码语法高亮
-- **目录导航**: Notebook页面左侧目录导航
+- 明亮、干净的数据作品集风格
+- 蓝色作为主行动色，青绿色作为数据分析辅助色
+- 卡片、指标、Notebook 查看器保持统一视觉语言
+- 移动端优先兜底，避免网格挤压和导航消失
 
-## 🚀 部署指南
-
-### 1. 启用 GitHub Pages
-
-1. 进入 GitHub 仓库设置
-2. 找到 Pages 选项
-3. Source 选择 `Deploy from a branch`
-4. Branch 选择 `main`，文件夹选择 `/ (root)`
-5. 保存设置
-
-### 2. 配置自定义域名
-
-1. 确保 `CNAME` 文件内容为 `data.waanng.cn`
-2. 在域名服务商处添加 CNAME 记录：
-   - 主机记录: `data`
-   - 记录类型: `CNAME`
-   - 记录值: `waanng.github.io`
-
-### 3. 等待生效
-
-- GitHub Pages 部署通常需要 1-5 分钟
-- DNS 解析可能需要 24-48 小时
-
-## 📝 添加新项目
-
-1. 在项目目录下创建新文件夹
-2. 复制 `ml-analysis/index.html` 作为模板
-3. 修改内容和样式
-4. 在首页和项目列表页添加卡片
-
-## 🛠️ 技术栈
+## 技术栈
 
 - HTML5 + CSS3
 - 原生 JavaScript
 - Font Awesome 图标
-- Google Fonts (Inter 字体)
+- Google Fonts: Inter + JetBrains Mono
 - GitHub Pages 托管
 
-## 📄 许可证
+## 添加新项目
 
-MIT License
+1. 新建项目目录，例如 `new-analysis/`
+2. 复制现有项目详情页结构并替换内容
+3. 在 `projects/index.html` 和首页项目区添加项目卡片
+4. 如果需要展示 Notebook，新增对应的 `notebook.html`
+
+## 部署
+
+1. GitHub Pages 使用 `main` 分支根目录部署
+2. `CNAME` 内容保持为 `data.waanng.cn`
+3. 域名服务商配置 CNAME 到 `waanng.github.io`
+
+## 注意事项
+
+- Notebook 页面当前依赖 nbviewer 渲染远程 `.ipynb`
+- 外部字体、图标和 nbviewer 均依赖网络环境
+- 后续如果需要更稳定的离线展示，建议用 `jupyter nbconvert` 生成本地 HTML
