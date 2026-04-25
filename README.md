@@ -16,13 +16,16 @@ data-site/
 ├── projects/index.html                # 项目列表页
 ├── ml-analysis/                       # 机器学习项目
 │   ├── index.html
-│   └── notebook.html
+│   ├── notebook.html
+│   └── notebook-content.html           # 本地 Notebook 静态预览
 ├── descriptive-analysis/              # 营销渠道效果分析
 │   ├── index.html
-│   └── notebook.html
+│   ├── notebook.html
+│   └── notebook-content.html
 ├── time-series/                       # 时间序列分析
 │   ├── index.html
-│   └── notebook.html
+│   ├── notebook.html
+│   └── notebook-content.html
 ├── assets/
 │   ├── css/main.css                   # 全站样式
 │   └── js/main.js                     # 导航与交互动效
@@ -59,6 +62,6 @@ data-site/
 
 ## 注意事项
 
-- Notebook 页面当前依赖 nbviewer 渲染远程 `.ipynb`
-- 外部字体、图标和 nbviewer 均依赖网络环境
-- 后续如果需要更稳定的离线展示，建议用 `jupyter nbconvert` 生成本地 HTML
+- Notebook 页面使用本地 `notebook-content.html` 静态预览，避免 nbviewer 限流
+- 外部字体和图标仍依赖网络环境
+- 如更新 `.ipynb`，需要重新用 `jupyter nbconvert` 生成对应的 `notebook-content.html`

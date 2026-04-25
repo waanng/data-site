@@ -129,15 +129,15 @@
       
       <div class="toc-title">目录导航</div>
       <ul class="toc-list">
-        <li><a href="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb" target="notebook-frame">完整 Notebook</a></li>
+        <li><a href="notebook-content.html" target="notebook-frame">完整 Notebook</a></li>
       </ul>
       
       <div class="download-section">
         <div class="toc-title">下载</div>
-        <a href="https://raw.githubusercontent.com/waanng/data-site/main/ml_analysis_notebook_executed.ipynb" 
+        <a href="../ml_analysis_notebook_executed.ipynb" 
            class="btn btn-secondary" 
            style="width: 100%; justify-content: center;"
-           target="_blank">
+           download>
           <i class="fas fa-download"></i>
           下载 .ipynb 文件
         </a>
@@ -148,14 +148,13 @@
       <div class="loading-overlay" id="loading">
         <i class="fas fa-circle-notch"></i>
         <p style="color: var(--text-secondary);">正在加载 Notebook...</p>
-        <p style="color: var(--text-muted); font-size: 13px; margin-top: 8px;">首次加载可能需要 10-20 秒</p>
+        <p style="color: var(--text-muted); font-size: 13px; margin-top: 8px;">正在加载本地静态预览</p>
       </div>
       
       <iframe 
         id="notebook-frame"
         name="notebook-frame"
-        src="https://nbviewer.org/github/waanng/data-site/blob/main/ml_analysis_notebook_executed.ipynb"
-        referrerpolicy="no-referrer"
+        src="notebook-content.html"
         onload="document.getElementById('loading').classList.add('hidden')"
       ></iframe>
     </div>
