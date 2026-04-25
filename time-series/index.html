@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/main.css?v=20260425-2">
+  <link rel="stylesheet" href="../assets/css/main.css?v=20260425-3">
 </head>
 <body>
   <!-- 顶部状态栏 -->
@@ -122,8 +122,38 @@
       </div>
     </section>
 
-    <!-- Data Schema -->
+    <!-- Visual Outputs -->
     <section class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <h2>关键图表</h2>
+          <p>从原始月度客户数到趋势、季节性和残差分解，快速理解时间序列结构。</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+          <article class="data-card" style="padding: 0; overflow: hidden;">
+            <img src="assets/images/time_series_overview.png" alt="时间序列趋势概览图" style="display: block; width: 100%; height: auto;">
+            <div style="padding: 22px 24px;">
+              <div class="card-title" style="margin-bottom: 8px;">TREND OVERVIEW</div>
+              <h3 style="margin-bottom: 8px;">客户数量趋势概览</h3>
+              <p style="color: var(--text-secondary);">展示月度客户数、移动平均和增长变化，辅助判断长期趋势。</p>
+            </div>
+          </article>
+
+          <article class="data-card" style="padding: 0; overflow: hidden;">
+            <img src="assets/images/seasonal_decomposition.png" alt="时间序列季节性分解图" style="display: block; width: 100%; height: auto;">
+            <div style="padding: 22px 24px;">
+              <div class="card-title" style="margin-bottom: 8px;">DECOMPOSITION</div>
+              <h3 style="margin-bottom: 8px;">趋势与季节性分解</h3>
+              <p style="color: var(--text-secondary);">拆解趋势、季节性和残差，观察周期波动和异常变化。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Schema -->
+    <section class="section">
       <div class="container">
         <div class="section-header">
           <h2>数据字段说明</h2>
@@ -204,6 +234,10 @@
           <a href="notebook.html" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;">
             <i class="fas fa-book-open"></i>
             查看完整 Notebook
+          </a>
+          <a href="assets/data/time_series.csv" class="btn btn-secondary" style="padding: 16px 32px; font-size: 16px; margin-left: 12px;" download>
+            <i class="fas fa-download"></i>
+            下载 CSV 数据
           </a>
         </div>
       </div>

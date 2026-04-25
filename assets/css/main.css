@@ -788,6 +788,7 @@ footer {
 /* Responsive safety net for existing inline grids */
 @media (max-width: 1080px) {
   .grid-4,
+  .container > div[style*="repeat(2"],
   .container > div[style*="repeat(4"],
   .container > div[style*="repeat(6"],
   .projects-grid[style],
@@ -866,6 +867,7 @@ footer {
   .grid-4,
   .projects-grid,
   .tech-stack,
+  .container > div[style*="repeat(2"],
   .container > div[style*="repeat(3"],
   .container > div[style*="repeat(4"],
   .container > div[style*="repeat(6"],
